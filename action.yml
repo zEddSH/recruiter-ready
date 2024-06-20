@@ -3,12 +3,13 @@ description: 'Automagically commit to the readme file'
 runs:
   using: "composite"
   steps:
-    - name: Set GitHub Path
-      run: echo "$GITHUB_ACTION_PATH" >> $GITHUB_PATH
-      shell: bash
-      env:
-        GITHUB_ACTION_PATH: ${{ github.action_path }}
-
+    - uses: actions/checkout@v3
     - name: Run commit.sh
-      run: commit.sh
-      shell: bash
+    - name: Run a one-line script
+      run: |
+        echo " " >> README.md
+        git config user.name $USERNAME
+        git config user.email $EMAIL
+        git add .
+        git commit -m "Always green!"
+        git push
