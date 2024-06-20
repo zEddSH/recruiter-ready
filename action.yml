@@ -8,8 +8,8 @@ runs:
       shell: bash
       run: |
         echo " " >> README.md
-        git config user.name $USERNAME
-        git config user.email $EMAIL
+        git config user.name zEddSH
+        git config user.email eddjlsh@gmail.com
         git add .
         git commit -m "Always green!"
         git push
