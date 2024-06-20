@@ -1,10 +1,6 @@
 name: 'Commit to README'
 description: 'Automagically commit to the readme file'
 
-env:
-  USERNAME: ${{ vars.USERNAME }}
-  EMAIL: ${{ vars.EMAIL }}
-
 runs:
   using: "composite"
   steps:
@@ -13,8 +9,8 @@ runs:
       shell: bash
       run: |
         echo " " >> README.md
-        git config user.name $USERNAME
-        git config user.email $EMAIL
+        git config user.name ${{ secrets.USERNAME }}
+        git config user.email ${{ secrets.EMAIL }}
         git add .
         git commit -m "Always green!"
         git push
