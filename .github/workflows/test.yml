@@ -7,6 +7,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - id: foo
-        uses: zEddSH/recruiter-ready@v1.10
-        with:
-          who-to-greet: 'Mona the Octocat'
+        uses: zEddSH/recruiter-ready@v1.11

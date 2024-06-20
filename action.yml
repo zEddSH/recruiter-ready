@@ -7,10 +7,13 @@ runs:
     - uses: actions/checkout@v3
     - name: Run a one-line script
       shell: bash
+      env:
+        USERNAME: ${{ secrets.USERNAME }}
+        EMAIL: ${{ secrets.EMAIL }}
       run: |
         echo " " >> README.md
-        git config user.name ${{ secrets.USERNAME }}
-        git config user.email ${{ secrets.EMAIL }}
+        git config user.name "$env:USERNAME"
+        git config user.email "$env:EMAIL"
         git add .
         git commit -m "Always green!"
         git push
